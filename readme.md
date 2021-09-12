@@ -9,6 +9,3 @@ A user will go through the following process:
 3. If they fail before the final level, the user does NOT earn the NFT
 4. If they complete the final level, the user earns an NFT, but only if the address that's authenticated has not earned it before
 5. Ideas for managing minting costs: ETH L2 (Arbitrum, Optimism, sidechains like Polygon), deferred minting costs etc.
-
-
-You can have a big idea and only work on part of it for your project. You'll be surprised how quickly a "simple" idea can get complicated when you're writing software! Once you have a general idea, isolate two or three essential things a user will do. Those will be a great starting point for your project. If you achieve them quickly, you can move on to the other aspects of your idea!
