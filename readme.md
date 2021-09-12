@@ -1,1 +1,3 @@
-Test1
+Explain in a very simple way what you'd like your project to do. It's easy to get complicated with ideas, but the real mental exercise is to dissolve an idea down into its essence. When discussing your idea with people, try to find a few concepts underpinning your idea.
+Walk through a single workflow for the future user of your project. Once you have a general idea of what you'd like to do, isolate some of the actions a user will take. Write
+You can have a big idea and only work on part of it for your project. You'll be surprised how quickly a "simple" idea can get complicated when you're writing software! Once you have a general idea, isolate two or three essential things a user will do. Those will be a great starting point for your project. If you achieve them quickly, you can move on to the other aspects of your idea!
