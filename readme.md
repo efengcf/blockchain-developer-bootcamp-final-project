@@ -13,11 +13,12 @@ A user will go through the following process:
 ## Functions brainstorm
 
 function register (address _player) {
-    // registers player via MetaMask after opting into playing for NFTs;
+    // registers player via MetaMask after opting into playing for the reward
 }
 
 modifier earnable () {
-    // checks whether player is eligble to earn an award
+    // checks player elgibility
+}
 
 function checkPastWinner (address _player) {
     // to check whether current player is a past winner explicitly
@@ -29,7 +30,6 @@ function gameComplete () {
 
 function rewardPlayer () {
     // emits an event and other appropriate responses to a player successfully completing the game
-    
 }
 
 ## Appendix references
