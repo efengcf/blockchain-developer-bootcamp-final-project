@@ -743,7 +743,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             }
             welcomeTxt.innerHTML = "JavaScript Snake<p></p>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "<p></p>";
             var welcomeStart = document.createElement("button");
-            welcomeStart.appendChild(document.createTextNode("Play Game"));
+            welcomeStart.appendChild(document.createTextNode("Play Game")); 
             var loadGame = function() {
                 SNAKE.removeEventListener(window, "keyup", kbShortcut, false);
                 tmpElm.style.display = "none";
@@ -775,7 +775,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             gameEndTxt.innerHTML = "JavaScript Snake<p></p>" + message + "<p></p>";
             var gameEndStart = document.createElement("button");
             gameEndStart.appendChild(document.createTextNode("Play Again?"));
-
             var reloadGame = function () {
                 tmpElm.style.display = "none";
                 me.resetBoard();
