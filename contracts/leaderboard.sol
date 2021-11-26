@@ -1,4 +1,3 @@
-
 pragma solidity >=0.6.6;
 
 contract Leaderboard {
@@ -6,8 +5,8 @@ contract Leaderboard {
   // person who deploys contract is the owner
   address owner;
 
-  // lists top 20 users
-  uint leaderboardLength = 20;
+  // lists top 10 users
+  uint leaderboardLength = 10;
 
   // create an array of Users
   mapping (uint => User) public leaderboard;
@@ -56,8 +55,8 @@ contract Leaderboard {
         delete leaderboard[leaderboardLength];
 
         return true;
+        
       }
     }
   }
 }
-view rawLeaderboard.sol hosted with ❤ by GitHub
