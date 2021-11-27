@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/patorjk/JavaScript-Snake#readme",
   "dependencies": {
+    "truffle": "^5.4.22",
     "web3": "^1.6.1",
     "yarn": "^1.22.17"
   },

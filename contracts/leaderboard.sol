@@ -6,7 +6,7 @@ contract Leaderboard {
   address owner;
 
   // lists top 10 users
-  uint leaderboardLength = 10;
+  uint leaderboardLength = 16;
 
   // create an array of Users
   mapping (uint => User) public leaderboard;
@@ -16,19 +16,19 @@ contract Leaderboard {
     string user;
     uint score;
   }
-    
+
+  // constructor function sets initial scoreboard  
   constructor() public{
     owner = msg.sender;
+    leaderboard[0] = User("Satoshi", 100);
+    leaderboard[1] = User("Buterin", 50);
+    leaderboard[2] = User("Craig S. Wright", 1);
+    
   }
 
-  // allows owner only
-  modifier onlyOwner(){
-    require(owner == msg.sender, "Sender not authorized");
-    _;
-  }
 
   // owner calls to update leaderboard
-  function addScore(string memory user, uint score) onlyOwner() public returns (bool) {
+  function addScore(string memory user, uint score) public returns (bool) {
     // if the score is too low, don't update
     if (leaderboard[leaderboardLength-1].score >= score) return false;
 
@@ -59,4 +59,5 @@ contract Leaderboard {
       }
     }
   }
+
 }

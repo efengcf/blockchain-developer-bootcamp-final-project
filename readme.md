@@ -34,3 +34,4 @@ Internal script logic checks for whether game score is achieved within the possi
 https://mozillacampusclubs.github.io/HTML-5-Game-Development/Game-Development.html
 https://www.trufflesuite.com/tutorial
 https://www.freecodecamp.org/news/html-button-onclick-javascript-click-event-tutorial/
+https://jeancvllr.medium.com/solidity-tutorial-all-about-structs-b3e7ca398b1e
