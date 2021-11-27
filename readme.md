@@ -33,3 +33,4 @@ Internal script logic checks for whether game score is achieved within the possi
 ## Appendix references
 https://mozillacampusclubs.github.io/HTML-5-Game-Development/Game-Development.html
 https://www.trufflesuite.com/tutorial
+https://www.freecodecamp.org/news/html-button-onclick-javascript-click-event-tutorial/
