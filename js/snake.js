@@ -685,7 +685,7 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmAboutPanel = document.createElement("div");
             elmAboutPanel.className = "snake-panel-component";
-            elmAboutPanel.innerHTML = "<a href='https://www.linkedin.com/in/evan-feng/' class='snake-link'>Evan's Profile</a> - <a href='https://github.com/efengcf/blockchain-developer-bootcamp-final-project' class='snake-link'>Github</a> - <a href='https://courses.consensys.net/' class='snake-link'>ConsenSys Academy</a>";
+            elmAboutPanel.innerHTML = "<a href='https://www.linkedin.com/in/evan-feng/' target='_blank' class='snake-link' >Evan's Profile</a> - <a href='https://github.com/efengcf/blockchain-developer-bootcamp-final-project' target='_blank' class='snake-link'>Github</a> - <a href='https://courses.consensys.net/' target='_blank' class='snake-link'>ConsenSys Academy</a>";
 
             elmLengthPanel = document.createElement("div");
             elmLengthPanel.className = "snake-panel-component";

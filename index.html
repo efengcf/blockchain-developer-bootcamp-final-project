@@ -88,8 +88,10 @@ function getTheme () {
         </select>
       </div>
       <button onclick="go_full_screen()">Full Screen</button>
+      <button onclick="connect()">Connect MetaMask</button>
       <button onclick="showLeaderboard()">Current Leaderboard</button>
-      <button onclick="uploadScore()">Upload High Score</button><br/>
+      <button onclick="uploadScore()">Upload High Score</button>
+      <br/>
     </div>
 
     <!--
@@ -124,7 +126,8 @@ function getTheme () {
           console.error(err);
           alert("Sorry, fullscreen won't work in this setup.");
         }
-      }
+      };
+      
   </script>
 </body>
 </html>
