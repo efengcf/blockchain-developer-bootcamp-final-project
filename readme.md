@@ -1,11 +1,13 @@
-## Deployed Front-End Address ##
+## Deployed Front-End ##
 https://efengcf.github.io/blockchain-developer-bootcamp-final-project/
 
-## Public NFT address ##
+## NFT Public Address ##
 0xa51EFF3178fCC9eA855bDaA6701e9203f2b89b22
+## Loom Video Walkthrough ##
+[TBU]
 
 ## Explain in a very simple way what you'd like your project to do.
-A simple in-browser game (format TBD) which generates a reward (event or maybe NFT in the future) on an EVM compatible chain (or ETH testnet) for achievements or rewards. The idea is for a very basic in-metaverse social proof of work/skill to develop with the ability for these rewards to be the basis for additional value in or out of game, similar to how players collect "achievements" today.
+A simple in-browser snake game which allows users to upload their high score to the blockchain for open recordkeeping. The idea is for a very basic in-metaverse social proof of work/skill to develop with the ability for these rewards to be the basis for additional value in or out of game, similar to how players collect "achievements" today, extensible to many games int he future.
 
 ## Walk through a single workflow for the future user of your project.
 A user will go through the following process:
@@ -18,11 +20,7 @@ A user will go through the following process:
 
 ## Functions Brainstorm / Overview
 constructor() public{
-    owner = msg.sender;
-    leaderboard[0] = User("Satoshi", 100);
-    leaderboard[1] = User("Buterin", 50);
-    leaderboard[2] = User("Craig S. Wright", 1);
-    // this seeds the leaderboard when the contract is first deployed, acting as an aspirational goal for players    
+  // this seeds the leaderboard when the contract is first deployed, acting as an aspirational goal for players    
   }
 
 function addScore(string memory user, uint score) public returns (bool) {

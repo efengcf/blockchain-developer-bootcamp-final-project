@@ -1,4 +1,6 @@
-pragma solidity >=0.6.6;
+// SPDX-License-Identier: MIT
+
+pragma solidity 0.6.0;
 
 contract Leaderboard {
 
