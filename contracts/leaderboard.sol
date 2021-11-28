@@ -5,7 +5,7 @@ contract Leaderboard {
   // person who deploys contract is the owner
   address owner;
 
-  // lists top 10 users
+  // lists top 16 users
   uint leaderboardLength = 16;
 
   // create an array of Users
@@ -27,7 +27,7 @@ contract Leaderboard {
   }
 
 
-  // owner calls to update leaderboard
+  // user calls to update leaderboard
   function addScore(string memory user, uint score) public returns (bool) {
     // if the score is too low, don't update
     if (leaderboard[leaderboardLength-1].score >= score) return false;

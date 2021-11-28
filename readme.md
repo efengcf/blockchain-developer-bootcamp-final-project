@@ -35,3 +35,6 @@ https://mozillacampusclubs.github.io/HTML-5-Game-Development/Game-Development.ht
 https://www.trufflesuite.com/tutorial
 https://www.freecodecamp.org/news/html-button-onclick-javascript-click-event-tutorial/
 https://jeancvllr.medium.com/solidity-tutorial-all-about-structs-b3e7ca398b1e
+https://dev.to/jacobedawson/send-react-web3-dapp-transactions-via-metamask-2b8ncd
+https://livecodestream.dev/post/interacting-with-smart-contracts-from-web-apps/
+https://consensys.net/developers/onboarding-step-3/

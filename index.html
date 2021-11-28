@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-
-Modified JS snake base
+<!-- Modified JS snake base
 
 -->
     <meta charset="utf-8">
@@ -19,10 +17,10 @@ Modified JS snake base
         padding: 5px;
       }
     </style>
+    <script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
 
 <script type="text/javascript" src="js/app.js"></script>
 <script>
-
 function getTheme () {
     function changeTheme(themeUrl) {
       var elm = document.getElementById("style");
@@ -131,5 +129,104 @@ function getTheme () {
       };
       
   </script>
+  <script type="text/javascript src="/js/app.js">
+    async function loadWeb3() {
+        if (window.ethereum) {
+            window.web3 = new Web3(window.ethereum);
+            window.ethereum.enable();
+        }
+    }
+
+    async function loadContract() {
+        return await new window.web3.eth.Contract([
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "user",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "score",
+          "type": "uint256"
+        }
+      ],
+      "name": "addScore",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "leaderboard",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "user",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "score",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ], '0x87ecdd7c82b3039e48fa8e463c53969ef187dfb3');
+}
+
+    async function showLeaderboard() {
+        const place0 = await window.contract.methods.leaderboard(0).call();
+        const place1 = await window.contract.methods.leaderboard(1).call();
+        const place2 = await window.contract.methods.leaderboard(2).call();
+        const place3 = await window.contract.methods.leaderboard(3).call();
+        const place4 = await window.contract.methods.leaderboard(4).call();
+        //const result = place0 + place1;
+        const result = (JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n")
+        console.log(result);
+        alert(result);
+        
+    }
+
+    async function getCurrentAccount() {
+        const accounts = await window.web3.eth.getAccounts();
+        return accounts[0];r
+    }
+
+    async function uploadScore() {
+        var userName = prompt("Enter your name",
+                "E.g. Vitalik");
+        const value = jsSnakeHighScore;
+        const account = await getCurrentAccount();
+        const coolNumber = await window.contract.methods.addScore(value).send({ from: account });
+    }
+
+    async function load() {
+        await loadWeb3();
+        window.contract = await loadContract();
+    }
+
+    load();
+</script>
 </body>
 </html>
