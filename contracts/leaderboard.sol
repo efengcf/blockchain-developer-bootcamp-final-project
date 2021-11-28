@@ -5,8 +5,6 @@ pragma solidity 0.6.0;
 /// @author Evan Feng
 /// @notice This is NOT intended to be a fully articulated game, but rather a proof of concept for the ConsenSys course.
 /// @dev  Please keep in mind when testing locally to allow for extra time for the transaction-based functions to execute before calls occur. It should take ~10-15 seconds to run truffle test.
-/// @custom:experimental this is still an experimental, albeit basic, contract.
-
 
 contract Leaderboard {
   /// @notice This contract will have native getter and an AddScore function.
