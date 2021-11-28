@@ -1,25 +1,31 @@
 // SPDX-License-Identier: MIT
-
 pragma solidity 0.6.0;
 
-contract Leaderboard {
+/// @title A backend scoreboard management contract associated with a JS snake game.
+/// @author Evan Feng
+/// @notice This is NOT intended to be a fully articulated game, but rather a proof of concept for the ConsenSys course.
+/// @dev  Please keep in mind when testing locally to allow for extra time for the transaction-based functions to execute before calls occur. It should take ~10-15 seconds to run truffle test.
+/// @custom:experimental this is still an experimental, albeit basic, contract.
 
-  // person who deploys contract is the owner
+
+contract Leaderboard {
+  /// @notice This contract will have native getter and an AddScore function.
+  /// @dev The person who deploys contract is the owner, though we allow anyone to update the contract (so it's not permissioned).
   address owner;
 
-  // lists top 16 users
+  /// @dev This chooses to limit the list to the below # of valid names. This is an arbitrary number but I wanted something where there's room for competition (space is scarce), but also not too limiting.
   uint leaderboardLength = 16;
 
-  // create an array of Users
+  /// @dev Creates an array of Users. Note that because of the way mapping works in ETH, there is not a limit to the leaderboard object itself (which we use as part of a unit test as well)
   mapping (uint => User) public leaderboard;
     
-  // each user has a username and score
+  /// @dev Each user has a username and score
   struct User {
     string user;
     uint score;
   }
 
-  // constructor function sets initial scoreboard  
+  /// @dev For purposes of seeding the scoreboard, I've set up the constructor function here to set an initial scoreboard with some famous cryptonative names.
   constructor() public{
     owner = msg.sender;
     leaderboard[0] = User("Satoshi", 100);
@@ -29,17 +35,17 @@ contract Leaderboard {
   }
 
 
-  // user calls to update leaderboard
+  /// @dev This is the most important function, which the user calls to update leaderboard with whatever their current high score (a local variable in the JS frontend) is. 
   function addScore(string memory user, uint score) public returns (bool) {
-    // if the score is too low, don't update
+    /// @dev If the score is too low, don't update
     if (leaderboard[leaderboardLength-1].score >= score) return false;
 
-    // loop through the leaderboard
+    /// @dev Loop through the leaderboard
     for (uint i=0; i<leaderboardLength; i++) {
-      // find where to insert the new score
+      /// @dev Find where to insert the new score
       if (leaderboard[i].score < score) {
 
-        // shift leaderboard
+        /// @dev Shift leaderboard
         User memory currentUser = leaderboard[i];
         for (uint j=i+1; j<leaderboardLength+1; j++) {
           User memory nextUser = leaderboard[j];
@@ -47,13 +53,13 @@ contract Leaderboard {
           currentUser = nextUser;
         }
 
-        // insert
+        /// @dev insert new score
         leaderboard[i] = User({
           user: user,
           score: score
         });
 
-        // delete last from list
+        /// @dev Delete last score from the list
         delete leaderboard[leaderboardLength];
 
         return true;
@@ -61,5 +67,4 @@ contract Leaderboard {
       }
     }
   }
-
 }

@@ -2,8 +2,8 @@
 https://efengcf.github.io/blockchain-developer-bootcamp-final-project/
 Please note if locally testing the front-end, you'll need to run npx http-server or something similar in terminal to serve the content correctly including integrating with Metamask.
 
-## Directory structure: ##
-Very straightforward, project front-end interface with web3 is found in index.html, while the game portion that's loaded is in snake.js (there's nothing web3 about that), while you can find Leaderboard.sol in /contracts and leaderboard.js in /test. Other items to flag would be the requirement for the project to be compiled with 0.6.0 as noted elsewhere (as part of the reduction in attack surface).
+## Directory and application structure: ##
+Very straightforward, project front-end interface with web3 is found in index.html, while the game portion that's loaded is in snake.js (there's nothing web3 about that), while you can find Leaderboard.sol in /contracts and leaderboard.js which is where the unit tests are in /test. Other items to flag would be the requirement for the project to be compiled with 0.6.0 as noted elsewhere (as part of the reduction in attack surface). Lastly, please note the truffle tests can take awhile (~10-15 seconds) when run given there are a few transactions that update state and then verify correct processing.
 
 ## NFT Public Address ##
 0xa51EFF3178fCC9eA855bDaA6701e9203f2b89b22
@@ -37,7 +37,7 @@ function checkCheater (address _player) {
 ## Additional functionality for future development
 Subresource integrity checks in index for js game files and prevent unauthorized edits / man in the middle attacks.
 Internal script logic checks for whether game score is achieved within the possible time a snake is "alive" for, if outside the bounds, hidden flag set which when sending a txn to the scoreboard, deletes the score instead.
-
+I thought about implementing more robust security / authentication of players themselves to only allow 1 submission at a time (and prompt for permission to delete another existing score stored in the contract) by tying addresses into the logic, but felt that was hard to incorporating in a way that didn't feel like even more friction which could drive players away.
 
 ## Appendix references of some sources used
 https://mozillacampusclubs.github.io/HTML-5-Game-Development/Game-Development.html
