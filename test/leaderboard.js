@@ -6,49 +6,53 @@ const Leaderboard = artifacts.require("Leaderboard");
  * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
  */
 contract("Leaderboard", function (User) {
-  //Luke's Donut Mind
-  it("Luke's Donut", async function () {
-    const param = ""; 
-    await this.Leaderboard.Leaderboard(param, {
-      from: contractOwner,
-      value: web3.utils.toWei('0.01', 'ether'),
-    });
+  // checks for correct User struct by testing function return is an object
+  it("verify User struct object creation", async function () {
+    const instance = await Leaderboard.deployed();
+    let myStructResult = await instance.leaderboard(0);
+      return assert.isTrue(typeof myStructResult ==='object');
   });
     
-  // tests for existence of a constructor function successfully executed
-  it("construction initialization should populate", async function () {
-    const userName = "Crash Test";
-    const sentScore = 17;
+  // tests for existence of a constructor function successfully executed, 3rd place should be Craig
+  it("constructor initialization should populate with 3 names", async function () {
+    const instance = await Leaderboard.deployed();
+    const thirdplace = await instance.leaderboard(2);
+    const thirdtext = JSON.stringify(thirdplace);
+    const result = thirdtext.includes('Craig');
+      return assert.isTrue(result);
+  });
+
+
+  // built-in getter function should work with any random integer from a distribution
+  it("native getter test", async function () {
+    const inputvalue = Math.floor(Math.random()*9999);
+    const instance = await Leaderboard.deployed();
+    const response = await instance.leaderboard(inputvalue);
+        return assert.isTrue(typeof response ==='object');
+  });
+
+  // submitting a new best score should result in the username being findable from the getter function immediately afterward
+  it("scoreboard add test", async function () {
+    const userName = "Addition";
+    const sentScore = 150;
     const instance = await Leaderboard.deployed();
     const scorePackage = await instance.addScore(userName, sentScore);
-    console.log(scorePackage.valueOf());
+    const newfirstplace = await instance.leaderboard(0);
+    const newfirsttext = JSON.stringify(newfirstplace);
+    const result = newfirsttext.includes(userName);
+      return assert.isTrue(result);
   });
 
-  // checks for correct User struct with user: score elements
-  it("verify User struct creation", async function () {
-  await Leaderboard.deployed();
-  return assert.isTrue(true);
-  });
-    
-  // built-in getter function should work
-  it("simple native get test", async function () {
+  // submitting a new additional score (incremental to the fourth test) should result in the previously third best score being the 4th best.
+  it("scoreboard reorder test", async function () {
+    const userName = "Second New";
+    const sentScore = 99;
     const instance = await Leaderboard.deployed();
-    let nativeget = await instance.leaderboard(0);
-    if(JSON.stringify(nativeget) !== JSON.stringify({})){
-      return assert.isTrue(true);
-    }      
-  });
-
-  // submitting a score should increase the size of the leaderboard if there aren't already 16
-  it("scoreboard add test", async function () {
-    await Leaderboard.deployed();
-    return assert.isTrue(true);
-  });
-
-  // submitting a score should NOT increase the size of the leaderboard if the scoreboard is at 16 entries
-  it("scoreboard replace test", async function () {
-    await Leaderboard.deployed();
-    return assert.isTrue(true);
+    const scorePackage = await instance.addScore(userName, sentScore);
+    const fifthplace = await instance.leaderboard(4);
+    const fifthtext = JSON.stringify(fifthplace);
+    const result = fifthtext.includes('Craig');
+      return assert.isTrue(result);
   });
 });
 

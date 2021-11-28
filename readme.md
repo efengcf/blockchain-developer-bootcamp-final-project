@@ -1,5 +1,9 @@
 ## Deployed Front-End ##
 https://efengcf.github.io/blockchain-developer-bootcamp-final-project/
+Please note if locally testing the front-end, you'll need to run npx http-server or something similar in terminal to serve the content correctly including integrating with Metamask.
+
+## Directory structure: ##
+Very straightforward, project front-end interface with web3 is found in index.html, while the game portion that's loaded is in snake.js (there's nothing web3 about that), while you can find Leaderboard.sol in /contracts and leaderboard.js in /test. Other items to flag would be the requirement for the project to be compiled with 0.6.0 as noted elsewhere (as part of the reduction in attack surface).
 
 ## NFT Public Address ##
 0xa51EFF3178fCC9eA855bDaA6701e9203f2b89b22
