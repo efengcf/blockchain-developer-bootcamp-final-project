@@ -203,8 +203,14 @@ async function showLeaderboard() {
         const place2 = await window.contract.methods.leaderboard(2).call();
         const place3 = await window.contract.methods.leaderboard(3).call();
         const place4 = await window.contract.methods.leaderboard(4).call();
+        const place5 = await window.contract.methods.leaderboard(5).call();
+        const place6 = await window.contract.methods.leaderboard(6).call();
+        const place7 = await window.contract.methods.leaderboard(7).call();
+        const place8 = await window.contract.methods.leaderboard(8).call();
+        const place9 = await window.contract.methods.leaderboard(9).call();
         //const result = place0 + place1;
-        const result = ("Here are the top-5 currently on the leaderboard:"+"\n"+"\n"+JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n");
+        const result = ("Here are the top-5 currently on the leaderboard:"+"\n"+"\n"+JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n"
+        + JSON.stringify(place5)+"\n"+ JSON.stringify(place6)+"\n" + JSON.stringify(place7)+"\n" + JSON.stringify(place8)+"\n" + JSON.stringify(place9)+"\n");
         console.log(result);
         alert(result);
         // would clean this up if I had more time but it does pull correctly! Difficult to easily make a mapping into array in an efficient manner
@@ -217,12 +223,13 @@ async function showLeaderboard() {
 
     async function uploadScore() {
         //alert("scores uploaded");
-        const userName = "Hello";
-        const submittedScore = 17;
+        const userName = prompt("Please enter your name", "E.g. Hal Finney");
+        const submittedScore = localStorage.jsSnakeHighScore;
         const account = await getCurrentAccount();
         const submission = await window.contract.methods.addScore(userName, submittedScore).send({ from: account }).gas(22000);
-
-        //NOTE - need to clear the local high score back to zero upon clicking here
+        localStorage.setItem(jsSnakeHighScore, 0); // clears the local high score back to zero upon clicking to create txn. Ideally there'd be logic to do so only on conf but hard to manage that
+        alert("Thank you for uploading your score!");
+        location.reload();
     }
 
     async function load() {
