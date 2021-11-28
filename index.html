@@ -18,6 +18,8 @@
       }
     </style>
     <script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
+    
+
 
 <script type="text/javascript" src="js/app.js"></script>
 <script>
@@ -129,7 +131,7 @@ function getTheme () {
       };
       
   </script>
-  <script type="text/javascript src="/js/app.js">
+  <script type="text/javascript">
     async function loadWeb3() {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum);
@@ -195,14 +197,14 @@ function getTheme () {
   ], '0x87ecdd7c82b3039e48fa8e463c53969ef187dfb3');
 }
 
-    async function showLeaderboard() {
+async function showLeaderboard() {
         const place0 = await window.contract.methods.leaderboard(0).call();
         const place1 = await window.contract.methods.leaderboard(1).call();
         const place2 = await window.contract.methods.leaderboard(2).call();
         const place3 = await window.contract.methods.leaderboard(3).call();
         const place4 = await window.contract.methods.leaderboard(4).call();
         //const result = place0 + place1;
-        const result = (JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n")
+        const result = (JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n");
         console.log(result);
         alert(result);
         
@@ -214,11 +216,10 @@ function getTheme () {
     }
 
     async function uploadScore() {
-        var userName = prompt("Enter your name",
-                "E.g. Vitalik");
-        const value = jsSnakeHighScore;
+        alert("scores uploaded");
+        /** const value = ("Hello", 23);
         const account = await getCurrentAccount();
-        const coolNumber = await window.contract.methods.addScore(value).send({ from: account });
+        const submission = await window.contract.methods.addScore(value).send({ from: account }); **/
     }
 
     async function load() {
@@ -227,6 +228,8 @@ function getTheme () {
     }
 
     load();
+    
 </script>
 </body>
+
 </html>
