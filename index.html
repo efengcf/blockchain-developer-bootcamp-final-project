@@ -86,7 +86,7 @@ function getTheme () {
             <option value="75" selected>Medium</option>
             <option value="50">Hard</option>
             <option value="25">Impossible</option>
-            <option value="110">Rush</option>
+            <!-- <option value="110">Rush</option> -->
         </select>
       </div>
       <button onclick="go_full_screen()">Full Screen</button>
@@ -223,13 +223,11 @@ async function showLeaderboard() {
 
     async function uploadScore() {
         //alert("scores uploaded");
-        const userName = prompt("Please enter your name", "E.g. Hal Finney");
+        const userName = prompt("Please enter your name", "E.g. Satoshi Nakamoto");
         const submittedScore = localStorage.jsSnakeHighScore;
+        localStorage.setItem("jsSnakeHighScore", 0);  // clears the local high score back to zero upon clicking to create txn. Ideally there'd be logic to do so only on conf but hard to manage that
         const account = await getCurrentAccount();
         const submission = await window.contract.methods.addScore(userName, submittedScore).send({ from: account }).gas(22000);
-        localStorage.setItem(jsSnakeHighScore, 0); // clears the local high score back to zero upon clicking to create txn. Ideally there'd be logic to do so only on conf but hard to manage that
-        alert("Thank you for uploading your score!");
-        location.reload();
     }
 
     async function load() {
