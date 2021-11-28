@@ -90,7 +90,7 @@ function getTheme () {
         </select>
       </div>
       <button onclick="go_full_screen()">Full Screen</button>
-      <button onclick="initWeb3()">Connect MetaMask</button>
+      <button onclick="loadWeb3()">Connect MetaMask</button>
       <button onclick="showLeaderboard()">Current Leaderboard</button>
       <button onclick="uploadScore()">Upload High Score</button>
       <br/>
@@ -204,10 +204,10 @@ async function showLeaderboard() {
         const place3 = await window.contract.methods.leaderboard(3).call();
         const place4 = await window.contract.methods.leaderboard(4).call();
         //const result = place0 + place1;
-        const result = (JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n");
+        const result = ("Here are the top-5 currently on the leaderboard:"+"\n"+"\n"+JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n");
         console.log(result);
         alert(result);
-        
+        // would clean this up if I had more time but it does pull correctly! Difficult to easily make a mapping into array in an efficient manner
     }
 
     async function getCurrentAccount() {
@@ -216,10 +216,13 @@ async function showLeaderboard() {
     }
 
     async function uploadScore() {
-        alert("scores uploaded");
-        /** const value = ("Hello", 23);
+        //alert("scores uploaded");
+        const userName = "Hello";
+        const submittedScore = 17;
         const account = await getCurrentAccount();
-        const submission = await window.contract.methods.addScore(value).send({ from: account }); **/
+        const submission = await window.contract.methods.addScore(userName, submittedScore).send({ from: account }).gas(22000);
+
+        //NOTE - need to clear the local high score back to zero upon clicking here
     }
 
     async function load() {
