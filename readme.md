@@ -35,7 +35,7 @@ Subresource integrity checks in index for js game files and prevent unauthorized
 Internal script logic checks for whether game score is achieved within the possible time a snake is "alive" for, if outside the bounds, hidden flag set which when sending a txn to the scoreboard, deletes the score instead.
 
 
-## Appendix references
+## Appendix references of some sources used
 https://mozillacampusclubs.github.io/HTML-5-Game-Development/Game-Development.html
 https://www.trufflesuite.com/tutorial
 https://www.freecodecamp.org/news/html-button-onclick-javascript-click-event-tutorial/
@@ -43,3 +43,4 @@ https://jeancvllr.medium.com/solidity-tutorial-all-about-structs-b3e7ca398b1e
 https://dev.to/jacobedawson/send-react-web3-dapp-transactions-via-metamask-2b8ncd
 https://livecodestream.dev/post/interacting-with-smart-contracts-from-web-apps/
 https://consensys.net/developers/onboarding-step-3/
+https://www.oreilly.com/library/view/hands-on-smart-contract/9781492045250/ch04.html
