@@ -209,7 +209,7 @@ async function showLeaderboard() {
         const place8 = await window.contract.methods.leaderboard(8).call();
         const place9 = await window.contract.methods.leaderboard(9).call();
         //const result = place0 + place1;
-        const result = ("Here are the top-5 currently on the leaderboard:"+"\n"+"\n"+JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n"
+        const result = ("Here are the top 10 scores currently on the leaderboard:"+"\n"+"\n"+JSON.stringify(place0)+"\n"+ JSON.stringify(place1)+"\n"+ JSON.stringify(place2)+"\n"+ JSON.stringify(place3)+"\n"+ JSON.stringify(place4)+"\n"
         + JSON.stringify(place5)+"\n"+ JSON.stringify(place6)+"\n" + JSON.stringify(place7)+"\n" + JSON.stringify(place8)+"\n" + JSON.stringify(place9)+"\n");
         console.log(result);
         alert(result);
