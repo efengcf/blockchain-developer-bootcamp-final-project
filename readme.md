@@ -5,10 +5,12 @@ Please note if locally testing the front-end, you'll need to run npx http-server
 ## Directory and application structure: ##
 Very straightforward, project front-end interface with web3 is found in index.html, while the game portion that's loaded is in snake.js (there's nothing web3 about that), while you can find Leaderboard.sol in /contracts and leaderboard.js which is where the unit tests are in /test. Other items to flag would be the requirement for the project to be compiled with 0.6.0 as noted elsewhere (as part of the reduction in attack surface). Lastly, please note the truffle tests can take awhile (~10-15 seconds) when run given there are a few transactions that update state and then verify correct processing.
 
+Instructions: I was able to run my unit tests successfully using truffle on both Windows and MacOS machines, and tested the full application locally as well as on the github pages frontend.
+
 ## NFT Public Address ##
 0xa51EFF3178fCC9eA855bDaA6701e9203f2b89b22
 ## Loom Video Walkthrough ##
-[TBU]
+https://www.loom.com/share/16b6f7dcb17d42748ebfc642d1fd50e0
 
 ## Explain in a very simple way what you'd like your project to do.
 A simple in-browser snake game which allows users to upload their high score to the blockchain for open recordkeeping. The idea is for a very basic in-metaverse social proof of work/skill to develop with the ability for these rewards to be the basis for additional value in or out of game, similar to how players collect "achievements" today, extensible to many games int he future.
